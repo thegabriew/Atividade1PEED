@@ -1,0 +1,56 @@
+pessoas = []
+
+while True:
+    print("\n----- Menu -----")
+    print("1 - Adicionar pessoa")
+    print("2 - Mostrar lista")
+    print("3 - Excluir pessoa")
+    print("4 - Procurar pessoa")
+    print("5 - Encerrar programa")
+
+    opcao = input("Digite a opção desejada: ")
+
+    if opcao == "1":
+        nomes = input("Digite os nomes das pessoas separados por vírgula: ")
+        nomes = nomes.split(",")
+        for nome in nomes:
+            pessoas.append(nome.strip())
+        print("Pessoas adicionadas com sucesso!")
+
+    elif opcao == "2":
+        if len(pessoas) == 0:
+            print("Primeiro faça o cadastro das pessoas.")
+        else:
+            print("Lista de pessoas cadastradas:")
+            for pessoa in pessoas:
+                print(pessoa)
+
+    elif opcao == "3":
+        if len(pessoas) == 0:
+            print("Primeiro faça o cadastro das pessoas.")
+        else:
+            pessoa_excluir = input("Digite o nome da pessoa a ser excluída: ")
+            if pessoa_excluir in pessoas:
+                pessoas.remove(pessoa_excluir)
+                print(f"{pessoa_excluir} foi removido(a) da lista.")
+            else:
+                print(f"{pessoa_excluir} não está na lista.")
+
+    elif opcao == "4":
+        if len(pessoas) == 0:
+            print("Primeiro faça o cadastro das pessoas.")
+        else:
+            pessoa_procurar = input("Digite o nome da pessoa a ser procurada: ")
+            if pessoa_procurar in pessoas:
+                print(f"{pessoa_procurar} está na lista.")
+            else:
+                print(f"{pessoa_procurar} não está na lista.")
+
+    elif opcao == "5":
+        encerrar = input("Deseja encerrar o programa? (s/n): ")
+        if encerrar.lower() == "s":
+            print("Programa encerrado.")
+            break
+
+    else:
+        print("Opção inválida. Digite novamente.")
